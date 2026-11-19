@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3f8f9">
+  <meta name="description" content="Eine visuelle Rechenhilfe zum Umgang mit Euro und Cent.">
+  <title>Geld legen – meine Geldtafel</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Geld legen">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <button id="home" class="brand" aria-label="Zur Startseite"><span class="brand-icon">€</span><span>Geld legen<small>Meine Geldtafel</small></span></button>
+    <div class="top-actions">
+      <button id="speechToggle" class="outline speech-toggle" aria-label="Sprachausgabe" aria-pressed="true"><span id="speechIcon" aria-hidden="true">🔊</span><span id="speechLabel">Sprache an</span></button>
+      <button id="help" class="outline" aria-label="Hilfe"><span class="symbol">?</span> <span class="top-label">Hilfe</span></button>
+      <button id="info" class="outline" aria-label="Information"><span class="symbol">i</span> <span class="top-label">Info</span></button>
+    </div>
+  </header>
+  <main id="app"></main>
+  <dialog id="helpDialog">
+    <h2>So geht's</h2>
+    <div class="helpsteps">
+      <p><b>1</b><span>Wähle eine Stufe.</span></p>
+      <p><b>2</b><span>Tippe auf deine Zahl in der Tafel.</span></p>
+      <p><b>3</b><span>Tippe auf Geld. Die Felder werden abgedeckt.</span></p>
+      <p><b>4</b><span>Lege so viel Geld wie du brauchst.</span></p>
+      <p><b>5</b><span>Die App fragt dich, wenn du Geld mit weniger Geldstücken legen kannst. Wähle im nächsten Fenster das passende Geldstück.</span></p>
+    </div>
+    <button class="outline" id="speakhelp">🔊 Anleitung hören</button>
+    <button class="primary close">✓ Schließen</button>
+  </dialog>
+  <dialog id="infoDialog">
+    <h2>Informationen zur Lernapp</h2>
+    <section><h3>🎯 Lernziel</h3><p>Die App ist eine Rechenhilfe für Schülerinnen und Schüler mit dem Förderschwerpunkt geistige Entwicklung. Mengen, Stellenwerte und Tauschmöglichkeiten werden mit Geldbildern und Zahlentafeln sichtbar.</p></section>
+    <section><h3>🔒 Datenschutz & Datenspeicherung</h3><p>Die Übungen laufen im Browser. Die App fragt keine Namen oder personenbezogenen Angaben ab und speichert keine Übungsverläufe. Die Einstellung der Sprachausgabe wird ausschließlich lokal auf dem Gerät gespeichert. Die Sprachausgabe nutzt die Vorlesefunktion des Geräts; ihre Verfügbarkeit und Verarbeitung hängen vom Browser und der gewählten Stimme ab.</p></section>
+    <section><h3>☁️ Hosting & Offline-Nutzung</h3><p>Die App wird über GitHub Pages, den Hosting-Dienst von GitHub, bereitgestellt. Beim Online-Aufruf wird die IP-Adresse durch GitHub zu Sicherheitszwecken protokolliert und gespeichert. Auch weitere technische Zugriffsdaten können verarbeitet werden. Informationen zur Datenverarbeitung: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von GitHub</a> und <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection" target="_blank" rel="noopener noreferrer">Datenerfassung bei GitHub Pages</a>. Nach dem ersten vollständigen Online-Aufruf werden die App-Dateien lokal zwischengespeichert. Die Rechenhilfe ist anschließend offline nutzbar.</p><p id="offline-status" role="status">Offline-Bereitschaft wird geprüft.</p><p>Auf dem iPad: In Safari öffnen, auf „Teilen“ und „Zum Home-Bildschirm“ tippen. Für Offline-Sprachausgabe muss eine deutsche Stimme auf dem Gerät verfügbar sein.</p></section>
+    <section><h3>🖼️ Bildmaterial & Urheberrecht</h3><p>Die Geldabbildungen stammen von <a href="https://picto.kits.app/" target="_blank" rel="noopener noreferrer">https://picto.kits.app/</a>. Die Stellenwertfarbgebung und die Schwierigkeitsstufen der Zahlentafeln orientieren sich an Gerhard Scheuriger: <em>Der sichere Umgang mit Geld, Band 1</em>, Persen Verlag. Einsatz für pädagogische Lern- und Förderzwecke.</p></section>
+    <section><h3>📞 Kontakt</h3><p>Bei Fragen oder Anmerkungen: <a href="mailto:matthias.scheibelhut-beck@hephata-schulnetz.de">matthias.scheibelhut-beck@hephata-schulnetz.de</a></p></section>
+    <button class="primary close">✓ Schließen</button>
+  </dialog>
+  <dialog id="questionDialog" class="swap-dialog swap-question" aria-labelledby="question-title"></dialog>
+  <dialog id="exchangeDialog" class="swap-dialog swap-selection" aria-labelledby="exchange-title"></dialog>
+</body>
+</html>
